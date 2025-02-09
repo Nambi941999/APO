@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apology Card Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f9e6e6;
+            overflow: hidden;
+            position: relative;
+        }
+        .card {
+            width: 60%;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            display: none;
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .play-btn, .response-btn {
+            background-color: #ff5c5c;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .response-btn {
+            margin: 10px;
+        }
+        #passcodeSection {
+            margin: 20px;
+        }
+        .beautiful-message {
+            font-size: 1.4em;
+            font-style: italic;
+            color: #ff5c5c;
+            margin-bottom: 20px;
+            font-weight: bold;
+            padding: 10px;
+            border: 2px solid #ff5c5c;
+            border-radius: 10px;
+            display: inline-block;
+            background: white;
+        }
+        #responseMessage {
+            font-size: 1.5em;
+            color: #ff5c5c;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .rose {
+            position: absolute;
+            font-size: 2em;
+            animation: fall 5s linear forwards;
+        }
+        @keyframes fall {
+            from { transform: translateY(-50px); opacity: 1; }
+            to { transform: translateY(100vh); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Apology Card Generator 💖</h1>
+    
+    <div id="passcodeSection">
+        <input type="password" id="passcode" placeholder="Enter Passcode">
+        <button class="play-btn" onclick="checkPasscode()">Submit</button>
+    </div>
+    <div id="content" style="display: none;">
+      <p class="beautiful-message">💔 "My love, I am truly sorry. Every second without your smile feels like an eternity. You are the light in my life, and I can't bear to see you upset. Please give me a chance to make things right. I promise to cherish you more than ever before. 💕" 💔</p>
+            <h2>I'm Sorry 😔🌹</h2>
+            <p id="apologyText"></p>
+            <h3>Sorry accepted? 🌹</h3>
+            <br><br>
+            <button class="response-btn" onclick="response('yes')">Yes💖🌹</button>
+            <button class="response-btn" onclick="response('no')">No😢🌹</button>
+            <p id="responseMessage"></p>
+    </div>
+    <script>
+        function checkPasscode() {
+            let passcode = document.getElementById("passcode").value;
+            if (passcode === "1234") {
+                document.getElementById("passcodeSection").style.display = "none";
+                document.getElementById("content").style.display = "block";
+            } else {
+                alert("Incorrect passcode. Try again.");
+            }
+        }
+
+        function response(answer) {
+            let responseMessage = document.getElementById("responseMessage");
+            if (answer === 'yes') {
+                responseMessage.innerText = "Maaf kiya tumhe! 💖🌹";
+                showerRoses(); // Start showering roses
+            } else {
+                responseMessage.innerText = "Toh bhi maaf kiya tumhe! 😢🌹 Because there is no option to not accept my sorry!";
+            }
+        }
+
+        function showerRoses() {
+            let duration = 10000; // 10 seconds
+            let endTime = Date.now() + duration;
+
+            function createRose() {
+                if (Date.now() > endTime) return;
+                let rose = document.createElement("div");
+                rose.classList.add("rose");
+                rose.innerHTML = "🌹💖";
+                rose.style.left = Math.random() * 100 + "vw";
+                rose.style.animationDuration = (Math.random() * 2 + 3) + "s"; // Random animation duration
+                document.body.appendChild(rose);
+                setTimeout(() => {
+                    rose.remove(); // Remove the rose after falling
+                }, 5000);
+                setTimeout(createRose, 200); // Create roses at intervals
+            }
+            createRose(); // Start creating roses
+        }
+    </script>
+</body>
+</html>
