@@ -5,13 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apology Card Generator</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f9e6e6;
-            overflow: hidden;
-            position: relative;
-        }
+       body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: linear-gradient(45deg, #ff5c5c, #ffb6c1), url('https://example.com/teddy-background.jpg'); /* Red gradient + Image */
+    background-size: 400% 400%;
+    animation: gradientAnimation 10s ease infinite;
+    color: #333;
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
         .card {
             width: 60%;
             margin: 20px auto;
@@ -34,25 +41,44 @@
             cursor: pointer;
             border-radius: 5px;
             margin-top: 10px;
+            transition: all 0.3s ease;
         }
-        .response-btn {
-            margin: 10px;
+        .play-btn:hover, .response-btn:hover {
+            background-color: #ff3b3b;
+            transform: scale(1.1);
         }
         #passcodeSection {
             margin: 20px;
         }
-        .beautiful-message {
-            font-size: 1.4em;
-            font-style: italic;
-            color: #ff5c5c;
-            margin-bottom: 20px;
-            font-weight: bold;
+        #passcode {
             padding: 10px;
+            font-size: 1.2em;
             border: 2px solid #ff5c5c;
-            border-radius: 10px;
-            display: inline-block;
-            background: white;
+            border-radius: 5px;
+            width: 80%;
+            max-width: 300px;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
         }
+        #passcode:focus {
+            border-color: #ff3b3b;
+            outline: none;
+        }
+        .beautiful-message {
+    font-size: 1.4em;
+    font-style: italic;
+    color: #ff5c5c;
+    margin-bottom: 20px;
+    font-weight: bold;
+    padding: 10px;
+    border: 2px solid #ff5c5c;
+    border-radius: 10px;
+    display: inline-block;
+    background: white;
+    text-align: center;
+    white-space: normal; /* Allow the text to wrap to the next line */
+    width: 100%; /* Ensure it takes the full width available */
+}
         #responseMessage {
             font-size: 1.5em;
             color: #ff5c5c;
@@ -68,43 +94,68 @@
             from { transform: translateY(-50px); opacity: 1; }
             to { transform: translateY(100vh); opacity: 0; }
         }
+
+        .typing {
+    display: inline-block;
+    border-right: 3px solid #ff5c5c;
+    white-space: normal; /* Allow text to wrap to the next line */
+    overflow: hidden;
+    animation: typing 6s steps(60) 1s forwards, blinkCaret 0.75s step-end infinite;
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 90%; /* Optional: Adjust to limit the width of the typing text */
+    word-wrap: break-word; /* Ensure long words break and wrap to the next line */
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blinkCaret {
+    50% { border-color: transparent; }
+}
     </style>
 </head>
 <body>
-    <h1>Apology Card Generator 💖</h1>
     
     <div id="passcodeSection">
+        <h1>Good Morning Twinkle💖</h1>
+        <h2>You Know Passcode very well.</h2>
         <input type="password" id="passcode" placeholder="Enter Passcode">
         <button class="play-btn" onclick="checkPasscode()">Submit</button>
     </div>
     <div id="content" style="display: none;">
-      <p class="beautiful-message">💔 "My love, I am truly sorry. Every second without your smile feels like an eternity. You are the light in my life, and I can't bear to see you upset. Please give me a chance to make things right. I promise to cherish you more than ever before. 💕" 💔</p>
-            <h2>I'm Sorry 😔🌹</h2>
-            <p id="apologyText"></p>
-            <h3>Sorry accepted? 🌹</h3>
-            <br><br>
-            <button class="response-btn" onclick="response('yes')">Yes💖🌹</button>
-            <button class="response-btn" onclick="response('no')">No😢🌹</button>
-            <p id="responseMessage"></p>
+        <p class="beautiful-message">
+            <span>💔 "My love, I am truly sorry. Every second without your smile feels like an eternity. You are the light in my life, and I can't bear to see you upset. Please give me a chance to make things right. I promise to cherish you more than ever before. 💕" 💔</span>
+        </p>
+        <a href="tedd.html">Please Click me</a>
+        <h2>I'm Sorry 😔🌹</h2>
+        <p id="apologyText"></p>
+        <h3>Sorry accepted? 🌹</h3>
+        <br><br>
+        <button class="response-btn" onclick="response('yes')">Yes💖🌹</button>
+        <button class="response-btn" onclick="response('no')">No😢🌹</button>
+        <p id="responseMessage"></p>
     </div>
     <script>
         function checkPasscode() {
             let passcode = document.getElementById("passcode").value;
-            if (passcode === "1234") {
+            if (passcode === "LadyDon") {
                 document.getElementById("passcodeSection").style.display = "none";
                 document.getElementById("content").style.display = "block";
             } else {
-                alert("Incorrect passcode. Try again.");
+                alert("Incorrect passcode. You know the passcode hint: the first nickname I gave you.");
             }
         }
 
         function response(answer) {
             let responseMessage = document.getElementById("responseMessage");
             if (answer === 'yes') {
-                responseMessage.innerText = "Maaf kiya tumhe! 💖🌹";
+                responseMessage.innerText = "Maaf kiya tumne! 💖🌹";
                 showerRoses(); // Start showering roses
             } else {
-                responseMessage.innerText = "Toh bhi maaf kiya tumhe! 😢🌹 Because there is no option to not accept my sorry!";
+                responseMessage.innerText = "Toh bhi maaf kiya tumne! 😢🌹 Because there is no option to not accept my sorry!";
             }
         }
 

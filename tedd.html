@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teddy Day Wishes 💕</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffefdb;
+            color: #333;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        h1 {
+            color: #ff5c5c;
+            font-size: 3em;
+        }
+        .teddy-image {
+            max-width: 300px;
+            margin: 30px 0;
+            animation: shake 0.5s ease-in-out infinite alternate;
+        }
+        @keyframes shake {
+            0% { transform: translateX(-10px); }
+            100% { transform: translateX(10px); }
+        }
+        .message {
+            font-size: 1.5em;
+            font-style: italic;
+            color: #ff5c5c;
+            margin: 20px;
+            font-weight: bold;
+            padding: 10px;
+            border: 2px solid #ff5c5c;
+            border-radius: 10px;
+            background: white;
+            display: inline-block;
+            max-width: 90%;
+            word-wrap: break-word;
+        }
+        .teddy-button {
+            background-color: #ff5c5c;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-size: 1.2em;
+            transition: background-color 0.3s;
+        }
+        .teddy-button:hover {
+            background-color: #ff2d2d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Teddy Day Wishes 💖</h1>
+        <!-- <img src="https://www.clipartkey.com/mpngs/m/40-400874_teddy-bear-png-transparent-pictures-teddy-bear-clipart.png" class="teddy-image" alt="Teddy Bear"> -->
+        <img src="teddy.jpeg" class="teddy-image" alt="Teddy Bear">
+        <div class="message">
+            "A teddy bear is a symbol of love and comfort. May your life always be filled with warmth, happiness, and cuddles. Happy Teddy Day! 💕🐻"
+        </div>
+        <button class="teddy-button" onclick="showLove()">Show Love</button>
+        <p id="loveMessage" style="font-size: 1.3em; color: #ff5c5c; font-weight: bold;"></p>
+    </div>
+
+    <script>
+        function showLove() {
+            const loveMessage = document.getElementById("loveMessage");
+            loveMessage.innerHTML = "Sending you warm hugs and lots of love! 💖🐻";
+        }
+    </script>
+</body>
+</html>
