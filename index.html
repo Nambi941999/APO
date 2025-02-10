@@ -5,26 +5,109 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Twinkle💖</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+       body {
+            font-family: 'Poppins', sans-serif;
             text-align: center;
-            background-color: #f9e6e6;
-            overflow: hidden;
-            position: relative;
+            background: linear-gradient(to bottom, #efe7e8, #ff7f7f);
+            margin: 0;
+            padding: 0;
         }
-        .card {
-            width: 60%;
-            margin: 20px auto;
-            padding: 20px;
+        .container {
+            padding: 40px 20px;
+            max-width: 850px;
+            margin: 0 auto;
             background: white;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-            display: none;
-            animation: fadeIn 1s ease-in-out;
+            border-radius: 20px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            overflow: hidden;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        h1 {
+            color: #ff5c5c;
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: bold;
+            font-family: 'Dancing Script', cursive;
+        }
+        .heart-image {
+            width: 180px;
+            animation: heartbeat 1s infinite alternate;
+            margin: 30px 0;
+        }
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.15); }
+        }
+        .message {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #ff5c5c;
+            background-color: #fff0f5;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            border: 3px solid #ff5c5c;
+            max-width: 80%;
+            margin: 20px auto;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            word-wrap: break-word;
+        }
+        .button {
+            background-color: #ff5c5c;
+            color: white;
+            padding: 14px 40px;
+            font-size: 1.3em;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-top: 20px;
+        }
+        .button:hover {
+            background-color: #ff2d2d;
+            transform: scale(1.05);
+        }
+        footer {
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #ff5c5c;
+            font-family: 'Dancing Script', cursive;
+        }
+        @media (max-width: 768px) {
+            .heart-image {
+                width: 120px;
+            }
+            h1 {
+                font-size: 2.5em;
+            }
+            .message {
+                font-size: 1.2em;
+                padding: 15px;
+            }
+            .button {
+                font-size: 1.1em;
+                padding: 12px 30px;
+            }
+        }
+        #passcodeSection {
+            margin: 20px;
+        }
+        #passcode {
+            padding: 10px;
+            font-size: 1.2em;
+            border: 2px solid #fd0505;
+            border-radius: 5px;
+            width: 80%;
+            max-width: 300px;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+        }
+        #passcode:focus {
+            border-color: #ff3b3b;
+            outline: none;
         }
         .play-btn, .response-btn {
             background-color: #ff5c5c;
@@ -40,86 +123,18 @@
             background-color: #ff3b3b;
             transform: scale(1.1);
         }
-        #passcodeSection {
-            margin: 20px;
-        }
-        #passcode {
-            padding: 10px;
-            font-size: 1.2em;
-            border: 2px solid #ff5c5c;
-            border-radius: 5px;
-            width: 80%;
-            max-width: 300px;
-            margin-bottom: 10px;
-            transition: all 0.3s ease;
-        }
-        #passcode:focus {
-            border-color: #ff3b3b;
-            outline: none;
-        }
-        .beautiful-message {
-    font-size: 1.4em;
-    font-style: italic;
-    color: #ff5c5c;
-    margin-bottom: 20px;
-    font-weight: bold;
-    padding: 10px;
-    border: 2px solid #ff5c5c;
-    border-radius: 10px;
-    display: inline-block;
-    background: white;
-    text-align: center;
-    white-space: normal; /* Allow the text to wrap to the next line */
-    width: 100%; /* Ensure it takes the full width available */
-}
-        #responseMessage {
-            font-size: 1.5em;
-            color: #ff5c5c;
-            font-weight: bold;
-            margin-top: 20px;
-        }
-        .rose {
-            position: absolute;
-            font-size: 2em;
-            animation: fall 5s linear forwards;
-        }
-        @keyframes fall {
-            from { transform: translateY(-50px); opacity: 1; }
-            to { transform: translateY(100vh); opacity: 0; }
-        }
-
-        .typing {
-    display: inline-block;
-    border-right: 3px solid #ff5c5c;
-    white-space: normal; /* Allow text to wrap to the next line */
-    overflow: hidden;
-    animation: typing 6s steps(60) 1s forwards, blinkCaret 0.75s step-end infinite;
-    width: 100%;
-    box-sizing: border-box;
-    max-width: 90%; /* Optional: Adjust to limit the width of the typing text */
-    word-wrap: break-word; /* Ensure long words break and wrap to the next line */
-}
-
-@keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
-}
-
-@keyframes blinkCaret {
-    50% { border-color: transparent; }
-}
     </style>
 </head>
 <body>
     
     <div id="passcodeSection">
-        <h1>Good Morning Twinkle💖</h1>
+        <h1>Twinkle this is for You💖</h1>
         <h2>You Know Passcode very well.</h2>
         <input type="password" id="passcode" placeholder="Enter Passcode">
         <button class="play-btn" onclick="checkPasscode()">Submit</button>
     </div>
-    <div id="content" style="display: none;">
-        <p class="beautiful-message">
+    <div id="content" style="display: none;"  class="container">
+        <!-- <p class="beautiful-message">
             <span>💔 "My love, I am truly sorry. Every second without your smile feels like an eternity. You are the light in my life, and I can't bear to see you upset. Please give me a chance to make things right. I promise to cherish you more than ever before. 💕" 💔</span>
         </p>
         <a href="tedd.html">Please Click me</a>
@@ -129,7 +144,18 @@
         <br><br>
         <button class="response-btn" onclick="response('yes')">Yes💖🌹</button>
         <button class="response-btn" onclick="response('no')">No😢🌹</button>
+        <p id="responseMessage"></p> -->
+
+        <h1>Valentine Week Wishes 💘</h1>
+        <img src="https://plus.unsplash.com/premium_photo-1681488142153-9d3966f2d815?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="heart-image" alt="Heart">
+        <div class="message" id="valentineMessage"></div>
+        <button class="response-btn" onclick="response('yes')">Show Your Love 💖</button>
         <p id="responseMessage"></p>
+        <footer>
+            <p>Wishing you love, joy, and happiness! ❤️</p>
+        </footer>
+    </div>
+ 
     </div>
     <script>
         function checkPasscode() {
@@ -145,10 +171,10 @@
         function response(answer) {
             let responseMessage = document.getElementById("responseMessage");
             if (answer === 'yes') {
-                responseMessage.innerText = "Maaf kiya tumne! 💖🌹";
+                responseMessage.innerText = "Love U Jaanu💖🌹";
                 showerRoses(); // Start showering roses
             } else {
-                responseMessage.innerText = "Toh bhi maaf kiya tumne! 😢🌹 Because there is no option to not accept my sorry!";
+                // responseMessage.innerText = "Toh bhi maaf kiya tumne! 😢🌹 Because there is no option to not accept my sorry!";
             }
         }
 
@@ -171,6 +197,61 @@
             }
             createRose(); // Start creating roses
         }
+
+        function showLove() {
+            const loveMessage = document.getElementById("valentineMessage");
+            loveMessage.innerHTML = "Sending you all my love and affection today and always! 💘";
+        }
+
+        // Function to display Valentine Week messages
+        function checkValentineWeek() {
+            const today = new Date();
+            const dayOfWeek = today.getDay();
+            const month = today.getMonth() + 1; // Month is 0-indexed, so we add 1
+            const day = today.getDate();
+
+            let valentineMessage = "";
+
+            // Check if it's the Valentine Week (February 7th to February 14th)
+            if (month === 2 && day >= 7 && day <= 14) {
+                switch (day) {
+                    case 7: // Rose Day
+                        valentineMessage = "🌹 Happy Rose Day! May your life bloom with love and happiness!";
+                        break;
+                    case 8: // Propose Day
+                        valentineMessage = "💍 Happy Propose Day! Let's celebrate love and commitment!";
+                        break;
+                    case 9: // Chocolate Day
+                        valentineMessage = "🍫 Happy Chocolate Day! Wishing you sweetness in every moment!";
+                        break;
+                    case 10: // Teddy Day
+                        valentineMessage = "🧸 Happy Teddy Day! Here's a virtual hug just for you!";
+                        break;
+                    case 11: // Promise Day
+                        valentineMessage = "💖 Happy Promise Day! Here's to promises that last forever!";
+                        break;
+                    case 12: // Hug Day
+                        valentineMessage = "🤗 Happy Hug Day! Sending you the warmest, tightest hugs!";
+                        break;
+                    case 13: // Kiss Day
+                        valentineMessage = "💋 Happy Kiss Day! Sending you sweet kisses and love!";
+                        break;
+                    case 14: // Valentine's Day
+                        valentineMessage = "💘 Happy Valentine's Day! You’re my forever Valentine!";
+                        break;
+                    default:
+                        valentineMessage = "Enjoy this special Valentine Week! 💖";
+                }
+            } else {
+                valentineMessage = "Sending you love every day, not just on Valentine’s! 💕";
+            }
+
+            const loveMessage = document.getElementById("valentineMessage");
+            loveMessage.innerHTML = valentineMessage;
+        }
+
+        // Automatically check the day of the week when the page loads
+        window.onload = checkValentineWeek;
     </script>
 </body>
 </html>
